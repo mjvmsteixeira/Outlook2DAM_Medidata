@@ -427,7 +427,7 @@ Configure pastas diferentes para cada email monitorizado:
 **Validação:**
 ```powershell
 # Ao iniciar, os logs mostram:
-[INF] Outlook2DAM inicializado. Pastas entrada: [email1→Contraordenações, email2→Processos], ...
+[INF] Outlook2DAM inicializado. Pastas entrada: [email1→Teste1, email2→Teste2], ...
 ```
 
 ---
@@ -440,8 +440,6 @@ Suporte completo para pastas de rede:
 <!-- Caminho UNC válido -->
 <add key="TempFolder" value="\\servidor\share\Outlook2DAM\" />
 
-<!-- Múltiplos níveis -->
-<add key="TempFolder" value="\\mc-srfs02\outlook2dam$\temp\" />
 ```
 
 **Requisitos:**
@@ -628,7 +626,7 @@ Cada email processado cria uma pasta única:
     <!-- Informações do email -->
     <assunto>Proposta Comercial Q1 2025</assunto>
     <from>remetente@empresa.com</from>
-    <to>contraordenacaocomprovativo@cm-caminha.pt</to> <!-- Apenas emails configurados em UserEmail -->
+    <to>geral@empresa.pt</to> <!-- Apenas emails configurados em UserEmail -->
 
     <!-- Localização dos arquivos -->
     <pasta>\\servidor\share\Outlook2DAM\20250130_143522_a1b2c3d4\\</pasta>
@@ -656,9 +654,9 @@ Cada email processado cria uma pasta única:
 - Útil para emails enviados para múltiplos destinatários
 
 **Exemplo**:
-- **Email original**: `To: contraordenacaocomprovativo@cm-caminha.pt, outro@empresa.com, externo@gmail.com`
-- **UserEmail configurado**: `contraordenacaocomprovativo@cm-caminha.pt`
-- **XML gerado**: `<to>contraordenacaocomprovativo@cm-caminha.pt</to>`
+- **Email original**: `To: geral@empresa.pt, outro@empresa.com, externo@gmail.com`
+- **UserEmail configurado**: `geral@empresa.pt`
+- **XML gerado**: `<to>geral@empresa.pt</to>`
 
 Se nenhum destinatário corresponder aos emails configurados, usa o email da conta que processou a mensagem.
 
@@ -904,7 +902,7 @@ private async Task<bool> ValidateFileCreation(string filePath, int maxRetries = 
 - ✨ **NOVO**: Suporte a pastas de entrada personalizadas **por email**
   - Nova configuração `InboxFolder` permite especificar pasta customizada
   - **Modo 1**: Pasta única para todos os emails: `<add key="InboxFolder" value="Processos" />`
-  - **Modo 2**: Pasta diferente por email: `<add key="InboxFolder" value="email1@domain.com:Contraordenações;email2@domain.com:Processos" />`
+  - **Modo 2**: Pasta diferente por email: `<add key="InboxFolder" value="email1@domain.com:testes;email2@domain.com:teste1" />`
   - Por padrão usa "Inbox" (Caixa de Entrada) para emails não configurados
   - Detecção automática e cache do ID da pasta para performance
   - Logs informativos mostram mapeamento email→pasta
