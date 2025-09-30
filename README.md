@@ -2,7 +2,7 @@
 
 ## Descrição
 
-O **Outlook2DAM** é um serviço Windows desenvolvido em C# (.NET 9.0) que automatiza o processamento de emails através do Microsoft Graph API. O sistema monitora emails não lidos, extrai informações, processa anexos, gera documentos PDF e XML estruturados, e armazena metadados em banco de dados Oracle para integração com sistemas Medidata SIDAM.
+O **Outlook2DAM** é um serviço Windows desenvolvido em C# (.NET 9.0) que automatiza o processamento de emails através do Microsoft Graph API. O sistema monitora emails não lidos, extrai informações, processa anexos, gera documentos PDF e XML estruturados, e armazena metadados em base de dados para integração com sistemas Medidata SIDAM.
 
 ## Índice
 
